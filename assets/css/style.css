@@ -1,0 +1,16 @@
+body {
+    text-align: center;
+}
+
+.crystal-image {
+    width: 200px;
+    height: 200px;
+}
+
+.row {
+    padding: 10px;
+}
+
+.btn {
+    margin: 0 auto;
+}
