@@ -53,8 +53,8 @@ $(".crystal-image").on("click", function() {
     var crystalValue = ($(this).attr("data-crystalvalue"));
     crystalValue = parseInt(crystalValue);
 
-    
     playerNumber += crystalValue;
+
     $("#player-total").text(playerNumber);
     
 
@@ -63,14 +63,14 @@ $(".crystal-image").on("click", function() {
         wins++;
         $("#player-wins").text(wins);
         alert("YOU WIN!  You gathered the exact number of gems and Billy is thrilled.  Click RESTART.");
-        
+        //button no longer adds numbers to total
 
     } else if (playerNumber > targetNumber) {
 
         losses++;
         $("#player-losses").text(losses);
         alert("YOU LOSE!  You have exceeded the allowable gem limit and will be fined immensely.  Click RESTART.");
-        
+        //button no longer adds numbers to total
     }
     
 });
