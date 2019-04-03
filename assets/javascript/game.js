@@ -1,5 +1,6 @@
 var wins = 0;
 var losses = 0;
+var gameOver = false;
 
 alert("Click START to begin");
 
@@ -50,6 +51,7 @@ $("#random-total").text(targetNumber);
 
 
 $(".crystal-image").on("click", function() {
+    if (gameOver) return;
     var crystalValue = ($(this).attr("data-crystalvalue"));
     crystalValue = parseInt(crystalValue);
 
@@ -59,18 +61,18 @@ $(".crystal-image").on("click", function() {
     
 
     if (playerNumber === targetNumber) {
-
+        gameOver = true;
         wins++;
         $("#player-wins").text(wins);
         alert("YOU WIN!  You gathered the exact number of gems and Billy is thrilled.  Click RESTART.");
-        //button no longer adds numbers to total
+        
 
     } else if (playerNumber > targetNumber) {
-
+        gameOver = true;
         losses++;
         $("#player-losses").text(losses);
         alert("YOU LOSE!  You have exceeded the allowable gem limit and will be fined immensely.  Click RESTART.");
-        //button no longer adds numbers to total
+        
     }
     
 });
@@ -78,6 +80,7 @@ $(".crystal-image").on("click", function() {
 }
 
 $(".btn").on("click", function() {
+    gameOver = false;
     $(".crystals").empty();
     $(".crystal-image").empty();
     $("#player-total").text("0");
